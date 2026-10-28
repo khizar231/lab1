@@ -1,0 +1,39 @@
+=== python lab1_rules.py ===
+
+T1 — Core pass
+Input:    {'name': 'Amina', 'score': 84, 'documents_complete': True, 'income_verified': True, 'attendance_eligible': True}
+Expected: PASS
+Actual:   PASS
+Reason:   all four explicit conditions passed
+Test:     OK
+
+T2 — Failure of new condition: income verification
+Input:    {'name': 'Bilal', 'score': 82, 'documents_complete': True, 'income_verified': False, 'attendance_eligible': True}
+Expected: FAIL
+Actual:   FAIL
+Reason:   income verification condition failed
+Test:     OK
+
+T3 — Failure of new condition: attendance
+Input:    {'name': 'Sara', 'score': 79, 'documents_complete': True, 'income_verified': True, 'attendance_eligible': False}
+Expected: FAIL
+Actual:   FAIL
+Reason:   attendance condition failed
+Test:     OK
+
+T4 — Threshold boundary: score exactly 70
+Input:    {'name': 'Hamza', 'score': 70, 'documents_complete': True, 'income_verified': True, 'attendance_eligible': True}
+Expected: PASS
+Actual:   PASS
+Reason:   all four explicit conditions passed
+Test:     OK
+
+=== python lab1_compare.py ===
+SCHOLARSHIP DECISION COMPARISON
+Input: Applicant(name='Noor', score=76, documents_complete=True, income_verified=True, attendance_eligible=True)
+Rule-based result: ELIGIBLE
+Rule-based reason: all four explicit conditions passed
+Conversational claim: Noor is ineligible because applicants must be under 20 years old.
+Conversational conclusion: INELIGIBLE
+Disagreement: True
+Analysis: age is not one of the defined rules, so the conversational claim introduces an unsupported condition. The rule-based result is traceable to the stated synthetic assumptions; neither result alone proves general intelligence or real-world scholarship eligibility.
